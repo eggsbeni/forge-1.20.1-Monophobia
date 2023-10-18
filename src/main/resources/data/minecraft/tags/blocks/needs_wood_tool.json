@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+
+    "monophobia:invasive_brick",
+    "monophobia:invasive_rock",
+    "monophobia:solidified_invasive_rock"
+
+  ]
+}

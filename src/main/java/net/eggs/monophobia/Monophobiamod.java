@@ -1,7 +1,12 @@
 package net.eggs.monophobia;
 
 import com.mojang.logging.LogUtils;
+import net.eggs.monophobia.block.ModBlocks;
+import net.eggs.monophobia.items.ModCreativeModeTabs;
+import net.eggs.monophobia.items.Moditems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -29,6 +34,11 @@ public class Monophobiamod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        Moditems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -50,6 +60,19 @@ public class Monophobiamod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(Moditems.RAWOPAQUE);
+            event.accept(Moditems.OPAQUE_INGOT);
+            event.accept(Moditems.MEMORY_ESSENCE);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.INVASIVE_ROCK);
+            event.accept(ModBlocks.INVASIVE_BRICK);
+            event.accept(ModBlocks.OPAQUE_BLOCK);
+            event.accept(ModBlocks.OPAQUE_ORE);
+            event.accept(ModBlocks.SOLIDIFIED_INVASIVE_ROCK);
+        }
 
     }
 

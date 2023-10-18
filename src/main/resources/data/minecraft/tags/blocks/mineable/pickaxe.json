@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+
+    "monophobia:opaque_block",
+    "monophobia:opaque_ore",
+    "monophobia:invasive_brick",
+    "monophobia:invasive_rock",
+    "monophobia:solidified_invasive_rock"
+
+  ]
+}
