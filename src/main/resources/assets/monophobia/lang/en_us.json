@@ -2,15 +2,74 @@
 
   "item.monophobia.rawopaque": "Raw Opaque",
   "item.monophobia.opaque_ingot": "Opaque Ingot",
+  "item.monophobia.divine_sculpture": "Divine Sculpture",
+  "item.monophobia.crystal_growth_shard": "Crystal Growth Shard",
   "item.monophobia.corruptedfruit": "Corrupted Fruit",
+  "item.monophobia.herbal_purity": "Herbal Purity",
+  "item.monophobia.herbal_purity_seeds": "Herbal Purity Seeds",
   "item.monophobia.memory_essence": "Memory Essence",
+
+  "block.monophobia.silent_mockery": "Silent Mockery",
+
+  "item.monophobia.opaque_sword": "Opaque Sword",
+  "item.monophobia.opaque_pickaxe": "Opaque Pickaxe",
+  "item.monophobia.opaque_axe": "Opaque Axe",
+  "item.monophobia.opaque_shovel": "Opaque Shovel",
+  "item.monophobia.opaque_hoe": "Opaque Hoe",
+  "item.monophobia.opaque_bow": "Opaque Bow",
+
+  "item.monophobia.opaque_helmet": "Opaque Helmet",
+  "item.monophobia.opaque_chestplate": "Opaque Chestplate",
+  "item.monophobia.opaque_leggings": "Opaque Leggings",
+  "item.monophobia.opaque_boots": "Opaque Boots",
+
+  "item.monophobia.desolate_slammer": "Desolate Slammer",
+  "item.monophobia.desolate_shield": "Desolate Shield",
+  "item.monophobia.consumed_staff": "Consumed Staff",
+
+  "enchantment.monophobia.lightning_striker": "Lightning Striker",
+  "block.monophobia.opaque_illuminator": "Opaque Illuminator",
+
+  "painting.monophobia.respite.title": "Respite",
+  "painting.monophobia.respite.author": "Eggs",
+
+"effect.monophobia.invasive_conscious": "Invasive Conscious",
+"effect.monophobia.invasive_conscious_stage_2": "Invasive Conscious Stage 2",
+"effect.monophobia.invasive_conscious_stage_3": "Invasive Conscious Stage 3",
+
+  "item.minecraft.potion.effect.invasive_conscious_stage_1_simulant": "Invasive Conscious Stimulant",
+  "item.minecraft.splash_potion.effect.invasive_conscious_stage_1_simulant": "Invasive Conscious Stimulant Splash",
+  "item.minecraft.lingering_potion.effect.invasive_conscious_stage_1_simulant": "Invasive Conscious Stimulant Linger",
+
+
+  "item.minecraft.potion.effect.invasive_conscious_stage_2_simulant": "Invasive Conscious Stimulant Stage 2",
+  "item.minecraft.splash_potion.effect.invasive_conscious_stage_2_simulant": "Invasive Conscious Stimulant Stage 2 Splash",
+  "item.minecraft.lingering_potion.effect.invasive_conscious_stage_2_simulant": "Invasive Conscious Stimulant Stage 2 Linger",
+
+  "item.minecraft.potion.effect.invasive_conscious_stage_3_simulant": "Invasive Conscious Stimulant Stage 3",
+  "item.minecraft.splash_potion.effect.invasive_conscious_stage_3_simulant": "Invasive Conscious Stimulant Stage 3 Splash",
+  "item.minecraft.lingering_potion.effect.invasive_conscious_stage_3_simulant": "Invasive Conscious Stimulant Stage 3 Linger",
+
+  "item.minecraft.tipped_arrow.effect.invasive_conscious_stage_1_simulant": "Tipped Arrow of Invasive Conscious Stage 1",
+  "item.minecraft.tipped_arrow.effect.invasive_conscious_stage_2_simulant": "Tipped Arrow of Invasive Conscious Stage 2",
+  "item.minecraft.tipped_arrow.effect.invasive_conscious_stage_3_simulant": "Tipped Arrow of Invasive Conscious Stage 3",
+
 
   "block.monophobia.invasive_rock": "Invasive Rock",
   "block.monophobia.invasive_brick": "Invasive Brick",
+  "block.monophobia.invasive_rock_stairs": "Invasive Rock Stairs",
+  "block.monophobia.invasive_rock_slab": "Invasive Rock Slab",
   "block.monophobia.solidified_invasive_rock": "Solidified Invasive Rock",
+  "block.monophobia.invasive_rock_pressure_plate": "Invasive Rock Pressure Plate",
+  "block.monophobia.invasive_rock_button": "Invasive Rock Button",
+  "block.monophobia.invasive_rock_wall": "Invasive Rock Wall",
+
   "block.monophobia.opaque_block": "Opaque Block",
   "block.monophobia.opaque_ore": "Opaque Ore",
+  "block.monophobia.infuser": "Infuser",
 
-  "creativetab.monophobia": "Monophobia Tab"
+  "creativetab.monophobia": "Monophobia Tab",
+
+  "entity.minecraft.villager.monophobia.flow_walker": "Flow Walker"
 
 }

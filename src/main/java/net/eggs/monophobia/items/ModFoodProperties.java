@@ -9,4 +9,6 @@ public class ModFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 400), 1f)
             .effect(() -> new MobEffectInstance(MobEffects.HARM, 1), 1f).build();
 
+    public static final FoodProperties HERBAL_PURITY = new FoodProperties.Builder().nutrition(8).saturationMod(5f).build();
+
 }

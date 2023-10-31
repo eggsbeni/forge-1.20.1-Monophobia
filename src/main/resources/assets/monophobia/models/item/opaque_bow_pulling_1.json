@@ -1,0 +1,6 @@
+{
+    "parent": "monophobia:item/opaque_bow",
+    "textures": {
+        "layer0": "monophobia:item/opaque_bow_pulling_1"
+    }
+}
