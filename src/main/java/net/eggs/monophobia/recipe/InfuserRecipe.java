@@ -14,6 +14,112 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
+
+public class InfuserRecipe implements Recipe<SimpleContainer> {
+    private final NonNullList<Ingredient> inputItems;
+    private final ItemStack output;
+    private final ResourceLocation id;
+
+    public InfuserRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
+        this.inputItems = inputItems;
+        this.output = output;
+        this.id = id;
+    }
+
+    @Override
+    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        if(pLevel.isClientSide()) {
+            return false;
+        }
+
+        return inputItems.get(0).test(pContainer.getItem(0))
+                && inputItems.get(1).test(pContainer.getItem(1)) && inputItems.get(2).test(pContainer.getItem(2));    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return inputItems;
+    }
+
+    @Override
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess pRegistryAccess) {
+        return output.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResultItem(RegistryAccess pRegistryAccess) {
+        return output.copy();
+    }
+
+    @Override
+    public ResourceLocation getId() {
+        return id;
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return Serializer.INSTANCE;
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return Type.INSTANCE;
+    }
+
+    public static class Type implements RecipeType<InfuserRecipe> {
+        public static final Type INSTANCE = new Type();
+        public static final String ID = "infusing";
+    }
+
+    public static class Serializer implements RecipeSerializer<InfuserRecipe> {
+        public static final Serializer INSTANCE = new Serializer();
+        public static final ResourceLocation ID = new ResourceLocation(Monophobiamod.MOD_ID, "infusing");
+
+        @Override
+        public InfuserRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+
+            JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
+            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            }
+
+            return new InfuserRecipe(inputs, output, pRecipeId);
+        }
+
+        @Override
+        public @Nullable InfuserRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
+
+            for(int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromNetwork(pBuffer));
+            }
+
+            ItemStack output = pBuffer.readItem();
+            return new InfuserRecipe(inputs, output, pRecipeId);
+        }
+
+        @Override
+        public void toNetwork(FriendlyByteBuf pBuffer, InfuserRecipe pRecipe) {
+            pBuffer.writeInt(pRecipe.inputItems.size());
+
+            for (Ingredient ingredient : pRecipe.getIngredients()) {
+                ingredient.toNetwork(pBuffer);
+            }
+
+            pBuffer.writeItemStack(pRecipe.getResultItem(null), false);
+        }
+    }
+}
+
+/*
 public class InfuserRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
@@ -31,7 +137,11 @@ public class InfuserRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        return inputItems.get(0).test(pContainer.getItem(0));
+        return inputItems.get(0).test(pContainer.getItem(0)) && inputItems.get(1)
+                .test(pContainer.getItem(1)) && inputItems.get(2).test(pContainer.getItem(2));
+        // Pre Help Post: return inputItems.get(0).test(pContainer.getItem(0));
+
+
     }
 
     @Override
@@ -116,4 +226,4 @@ public class InfuserRecipe implements Recipe<SimpleContainer> {
             buf.writeItemStack(recipe.getResultItem(null), false);
         }
     }
-}
+}*/
