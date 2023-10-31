@@ -1,0 +1,11 @@
+{
+  "type": "monophobia:infusing",
+  "ingredients": [
+    {
+      "item": "monophobia:crystal_growth_shard"
+    }
+  ],
+  "output": {
+    "item": "monophobia:opaque_bow"
+  }
+}

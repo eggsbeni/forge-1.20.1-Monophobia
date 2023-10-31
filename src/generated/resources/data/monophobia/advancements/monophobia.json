@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "has_rawopaque": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "monophobia:rawopaque"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "monophobia:textures/item/rawopaque.png",
+    "description": {
+      "text": "Find a metal tainted by the sickness."
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "monophobia:rawopaque"
+    },
+    "show_toast": true,
+    "title": {
+      "text": "Altered"
+    }
+  },
+  "requirements": [
+    [
+      "has_rawopaque"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

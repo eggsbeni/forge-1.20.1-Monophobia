@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "monophobia:block/infuser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "monophobia:block/infuser"
+    },
+    "facing=south": {
+      "model": "monophobia:block/infuser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "monophobia:block/infuser",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,4 @@
+// 1.20.1	2023-10-25T23:08:05.4329258	Global Loot Modifiers : monophobia
+ca8095f5d54a5c3b288f346723b3c31c15459e69 data/forge/loot_modifiers/global_loot_modifiers.json
+a44a019d6a18b86c111385ba3f526402bbf4484f data/monophobia/loot_modifiers/herbal_purity_from_pillager_outpost.json
+b1e8056c6b117b09bf0551c5903662e9fd4e1a12 data/monophobia/loot_modifiers/herbal_purity_seeds_from_abandoned_mineshaft.json

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_Opaque_Ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "monophobia:opaque_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "monophobia:opaque_hoe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_Opaque_Ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "monophobia:opaque_hoe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

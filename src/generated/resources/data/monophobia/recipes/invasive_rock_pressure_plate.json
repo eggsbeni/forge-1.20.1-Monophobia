@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "monophobia:invasive_rock"
+    }
+  },
+  "pattern": [
+    "   ",
+    "   ",
+    "AA "
+  ],
+  "result": {
+    "item": "monophobia:invasive_rock_pressure_plate"
+  },
+  "show_notification": true
+}

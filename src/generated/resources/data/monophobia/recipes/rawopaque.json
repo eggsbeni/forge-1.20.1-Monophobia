@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "opaque_ingot",
+  "key": {
+    "#": {
+      "item": "monophobia:rawopaque"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "monophobia:opaque_ore"
+  },
+  "show_notification": true
+}

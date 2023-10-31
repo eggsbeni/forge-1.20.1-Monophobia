@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "monophobia:opaque_ingot"
+    },
+    "B": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    " AB",
+    "A B",
+    " AB"
+  ],
+  "result": {
+    "item": "monophobia:opaque_bow"
+  },
+  "show_notification": true
+}

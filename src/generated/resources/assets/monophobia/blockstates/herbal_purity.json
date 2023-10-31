@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "monophobia:block/herbal_purity_stage0"
+    },
+    "age=1": {
+      "model": "monophobia:block/herbal_purity_stage1"
+    },
+    "age=2": {
+      "model": "monophobia:block/herbal_purity_stage2"
+    },
+    "age=3": {
+      "model": "monophobia:block/herbal_purity_stage3"
+    },
+    "age=4": {
+      "model": "monophobia:block/herbal_purity_stage4"
+    },
+    "age=5": {
+      "model": "monophobia:block/herbal_purity_stage5"
+    },
+    "age=6": {
+      "model": "monophobia:block/herbal_purity_stage6"
+    }
+  }
+}

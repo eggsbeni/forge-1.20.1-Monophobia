@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "opaque_ingot",
+  "ingredients": [
+    {
+      "item": "monophobia:opaque_ore"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "monophobia:rawopaque"
+  }
+}

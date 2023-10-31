@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.25,
+  "group": "opaque_ingot",
+  "ingredient": {
+    "item": "monophobia:opaque_ore"
+  },
+  "result": "monophobia:opaque_ingot"
+}

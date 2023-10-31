@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "clicked=false": {
+      "model": "monophobia:block/opaque_illuminato_off"
+    },
+    "clicked=true": {
+      "model": "monophobia:block/opaque_illuminator_on"
+    }
+  }
+}
