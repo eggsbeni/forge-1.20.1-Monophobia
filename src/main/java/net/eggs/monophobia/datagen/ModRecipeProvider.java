@@ -201,11 +201,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreBlasting(pWriter, OPAQUE_SMELTABLES, RecipeCategory.MISC, Moditems.OPAQUE_INGOT.get(), 0.25f, 100, "opaque_ingot");
 
 
-        new InfuserRecipeBuilder(Moditems.CRYSTAL_GROWTH_SHARD.get(), Moditems.OPAQUE_BOW.get(), 1)
-                .unlockedBy("has_crystal_growth_shard", has(Moditems.CRYSTAL_GROWTH_SHARD.get())).save(pWriter);
+       // new InfuserRecipeBuilder(Moditems.CRYSTAL_GROWTH_SHARD.get(), Moditems.OPAQUE_BOW.get(), 1)
+               // .unlockedBy("has_crystal_growth_shard", has(Moditems.CRYSTAL_GROWTH_SHARD.get())).save(pWriter);
 
-        new InfuserRecipeBuilder(Items.DIAMOND, Moditems.CRYSTAL_GROWTH_SHARD.get(), 1)
-                .unlockedBy("has_crystal_growth_shard", has(Moditems.CRYSTAL_GROWTH_SHARD.get())).save(pWriter);
+       // new InfuserRecipeBuilder(Items.DIAMOND, Moditems.CRYSTAL_GROWTH_SHARD.get(), 1)
+               // .unlockedBy("has_crystal_growth_shard", has(Moditems.CRYSTAL_GROWTH_SHARD.get())).save(pWriter);
     }
 
 
