@@ -52,10 +52,10 @@ public class InfuserMenu extends AbstractContainerMenu {
 
     public int getScaledProgress() {
         int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);  // Max Progress
-        int progressArrowSize = 5; // This is the height in pixels of your arrow
+        int maxProgress = this.data.get(1); // Max Progress
+        int progressArrowWidth = 25; // Full width of the arrow in pixels
 
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowWidth / maxProgress : 0;
     }
 
 

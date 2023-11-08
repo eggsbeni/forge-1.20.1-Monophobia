@@ -2,7 +2,13 @@
   "type": "monophobia:infusing",
   "ingredients": [
     {
-      "item": "monophobia:crystal_growth_shard, minecraft:bow, monophobia:opaque_ingot"
+      "item": "monophobia:crystal_growth_shard"
+    },
+    {
+      "item": "minecraft:bow"
+    },
+    {
+      "item": "monophobia:opaque_ingot"
     }
   ],
   "output": {
