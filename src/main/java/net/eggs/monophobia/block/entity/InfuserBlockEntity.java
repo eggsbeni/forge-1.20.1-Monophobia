@@ -3,10 +3,15 @@ package net.eggs.monophobia.block.entity;
 import net.eggs.monophobia.items.Moditems;
 import net.eggs.monophobia.recipe.InfuserRecipe;
 import net.eggs.monophobia.screen.InfuserMenu;
+import net.eggs.monophobia.util.ModEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -23,6 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -59,9 +65,28 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
+    private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
+
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 100;
+    private int maxProgress = 120;
+
+
+    private final ModEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+
+    private ModEnergyStorage createEnergyStorage() {
+        return new ModEnergyStorage(64000, 200) {
+            @Override
+            public void onEnergyChanged() {
+                setChanged();
+                getLevel().sendBlockUpdated(getBlockPos(), getBlockState(),
+                        getBlockState(), 3);
+
+            }
+        };
+    }
+
+    
 
     public InfuserBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.INFUSER_BE.get(), pPos, pBlockState);
@@ -90,6 +115,11 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
         };
     }
 
+    public IEnergyStorage getEnergyStorage() {
+        return this.ENERGY_STORAGE;
+
+    }
+
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -112,6 +142,10 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if(cap == ForgeCapabilities.ENERGY) {
+            return lazyEnergyHandler.cast();
+        }
+
         if(cap == ForgeCapabilities.ITEM_HANDLER) {
             return lazyItemHandler.cast();
         }
@@ -123,18 +157,21 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+        lazyEnergyHandler.invalidate();
     }
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         pTag.put("inventory", itemHandler.serializeNBT());
         pTag.putInt("infuser.progress", progress);
+        pTag.putInt("energy", ENERGY_STORAGE.getEnergyStored());
 
         super.saveAdditional(pTag);
     }
@@ -144,12 +181,16 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
         super.load(pTag);
         itemHandler.deserializeNBT(pTag.getCompound("inventory"));
         progress = pTag.getInt("infuser.progress");
+        ENERGY_STORAGE.setEnergy(pTag.getInt("energy"));
 
     }
 
     public void tick(Level level, BlockPos pPos, BlockState pState) {
+        fillUpOnEnergy();
+
         if (isOutputSlotEmptyOrReceivable() && hasRecipe()) {
             increaseCraftingProcess();
+            extractEnergy();
             setChanged(level, pPos, pState);
 
             if (hasProgressFinished()) {
@@ -159,6 +200,21 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
         } else {
             resetProgress();
         }
+    }
+
+    private void extractEnergy() {
+        this.ENERGY_STORAGE.extractEnergy(1000, false);
+    }
+
+    private void fillUpOnEnergy() {
+        if(hasEnergyItemInSlot(ENERGY_ITEM_SLOT)) {
+            this.ENERGY_STORAGE.receiveEnergy(3200, false);
+        }
+    }
+
+    private boolean hasEnergyItemInSlot(int energyItemSlot) {
+        return !this.itemHandler.getStackInSlot(energyItemSlot).isEmpty() &&
+                this.itemHandler.getStackInSlot(energyItemSlot).getItem() == Moditems.MEMORY_ESSENCE.get();
     }
 
     private void craftItem() {
@@ -194,7 +250,11 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
         ItemStack resultItem = recipe.get().getResultItem(getLevel().registryAccess());
 
         return canInsertAmountIntoOutputSlot(resultItem.getCount())
-                && canInsertItemIntoOutputSlot(resultItem.getItem());
+                && canInsertItemIntoOutputSlot(resultItem.getItem()) && hasEnoughEnergyToCraft();
+    }
+
+    private boolean hasEnoughEnergyToCraft() {
+        return this.ENERGY_STORAGE.getEnergyStored() >= 100 * maxProgress;
     }
 
     private Optional<InfuserRecipe> getCurrentRecipe() {
@@ -218,6 +278,22 @@ public class InfuserBlockEntity extends BlockEntity implements MenuProvider {
     private boolean isOutputSlotEmptyOrReceivable() {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
                 this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() < this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+    }
+
+    @Nullable
+    @Override
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
     }
 }
 

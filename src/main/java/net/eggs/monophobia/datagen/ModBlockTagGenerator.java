@@ -33,8 +33,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.INVASIVE_ROCK_SLAB.get(),
                         ModBlocks.INVASIVE_ROCK_WALL.get(),
                         ModBlocks.SOLIDIFIED_INVASIVE_ROCK.get());
+                        ModBlocks.INFUSER.get();
 
-        this.tag(BlockTags.MINEABLE_WITH_AXE);
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(ModBlocks.OPAQUE_BLOCK.get(),
+                        ModBlocks.INVASIVE_STAIRS.get(),
+                        ModBlocks.INVASIVE_SLAB.get());
 
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL);
 
@@ -45,7 +49,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL);
 
-        this.tag(BlockTags.NEEDS_IRON_TOOL);
+        this.tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.INFUSER.get());
+
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.OPAQUE_ORE.get(),
@@ -60,6 +66,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.INVASIVE_ROCK_WALL.get());
 
 
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.INVASIVE_LOG.get())
+                .add(ModBlocks.INVASIVE_WOOD.get())
+                .add(ModBlocks.STRIPPED_INVASIVE_LOG.get())
+                .add(ModBlocks.STRIPPED_INVASIVE_WOOD.get());
+
+        this.tag(BlockTags.PLANKS)
+                .add(ModBlocks.INVASIVE_PLANKS.get());
+                ;
 
 
 

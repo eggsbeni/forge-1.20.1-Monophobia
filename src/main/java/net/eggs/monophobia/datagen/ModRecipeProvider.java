@@ -177,6 +177,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(Moditems.OPAQUE_INGOT.get()).build()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_STAIRS.get())
+                .pattern("A  ")
+                .pattern("AA ")
+                .pattern("AAA")
+                .define('A', ModBlocks.INVASIVE_PLANKS.get())
+                .unlockedBy("has_Invasive_planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_SLAB.get())
+                .pattern("   ")
+                .pattern("   ")
+                .pattern("AAA")
+                .define('A', ModBlocks.INVASIVE_PLANKS.get())
+                .unlockedBy("has_Invasive_planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
 
 
         //SHAPELESS

@@ -19,7 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
-    public ModBlockLootTables(){
+    public ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
 
     }
@@ -52,10 +52,24 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HerbalPurityCropBlock.AGE, 6));
         this.add(ModBlocks.HERBAL_PURITY.get(), this.createCropDrops(ModBlocks.HERBAL_PURITY.get(), Moditems.HERBAL_PURITY.get(), Moditems.HERBAL_PURITY_SEEDS.get(), lootitemcondition$builder1));
 
+
+        this.dropSelf(ModBlocks.INVASIVE_LOG.get());
+        this.dropSelf(ModBlocks.INVASIVE_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_INVASIVE_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_INVASIVE_WOOD.get());
+        this.dropSelf(ModBlocks.INVASIVE_PLANKS.get());
+        this.dropSelf(ModBlocks.INVASIVE_SAPLING.get());
+
+        this.dropSelf(ModBlocks.INVASIVE_STAIRS.get());
+        this.add(ModBlocks.INVASIVE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.INVASIVE_SLAB.get()));
+
+        this.add(ModBlocks.INVASIVE_LEAVES.get(), block ->
+                createLeavesDrops(block, ModBlocks.INVASIVE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+    }
+        @Override
+        protected Iterable<Block> getKnownBlocks () {
+            return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        }
     }
 
-    @Override
-    protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
-    }
-}

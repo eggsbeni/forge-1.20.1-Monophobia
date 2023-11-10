@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "monophobia:block/invasive_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "monophobia:block/invasive_log"
+    },
+    "axis=z": {
+      "model": "monophobia:block/invasive_log_horizontal",
+      "x": 90
+    }
+  }
+}

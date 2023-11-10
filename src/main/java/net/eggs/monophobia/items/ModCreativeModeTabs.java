@@ -41,6 +41,7 @@ public class ModCreativeModeTabs {
 
                 output.accept(Moditems.DESOLATE_SLAMMER.get());
                 output.accept(Moditems.DESOLATE_SHIELD.get());
+                output.accept(Moditems.DESOLATE_PLATING.get());
                 output.accept(Moditems.CONSUMED_STAFF.get());
 
                 output.accept(Moditems.OPAQUE_HELMET.get());
@@ -59,6 +60,16 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.INVASIVE_ROCK_BUTTON.get());
                 output.accept(ModBlocks.INVASIVE_ROCK_WALL.get());
                 output.accept(ModBlocks.SOLIDIFIED_INVASIVE_ROCK.get());
+
+                output.accept(ModBlocks.INVASIVE_LOG.get());
+                output.accept(ModBlocks.INVASIVE_WOOD.get());
+                output.accept(ModBlocks.STRIPPED_INVASIVE_LOG.get());
+                output.accept(ModBlocks.STRIPPED_INVASIVE_WOOD.get());
+                output.accept(ModBlocks.INVASIVE_PLANKS.get());
+                output.accept(ModBlocks.INVASIVE_STAIRS.get());
+                output.accept(ModBlocks.INVASIVE_SLAB.get());
+                output.accept(ModBlocks.INVASIVE_LEAVES.get());
+                output.accept(ModBlocks.INVASIVE_SAPLING.get());
 
                 output.accept(ModBlocks.OPAQUE_ORE.get());
 

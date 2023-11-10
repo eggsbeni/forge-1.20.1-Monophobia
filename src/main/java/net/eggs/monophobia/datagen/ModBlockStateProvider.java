@@ -34,7 +34,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         stairsBlock((StairBlock) ModBlocks.INVASIVE_ROCK_STAIRS.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
         slabBlock((SlabBlock) ModBlocks.INVASIVE_ROCK_SLAB.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
 
-
+        stairsBlock((StairBlock) ModBlocks.INVASIVE_STAIRS.get(), blockTexture(ModBlocks.INVASIVE_PLANKS.get()));
+        slabBlock((SlabBlock) ModBlocks.INVASIVE_SLAB.get(), blockTexture(ModBlocks.INVASIVE_PLANKS.get()), blockTexture(ModBlocks.INVASIVE_PLANKS.get()));
 
         buttonBlock((ButtonBlock) ModBlocks.INVASIVE_ROCK_BUTTON.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
         pressurePlateBlock((PressurePlateBlock) ModBlocks.INVASIVE_ROCK_PRESSURE_PLATE.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
@@ -43,6 +44,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.INVASIVE_ROCK_STAIRS);
         blockItem(ModBlocks.INVASIVE_ROCK_SLAB);
         blockItem(ModBlocks.INVASIVE_ROCK_PRESSURE_PLATE);
+
+        blockItem(ModBlocks.INVASIVE_STAIRS);
+        blockItem(ModBlocks.INVASIVE_SLAB);
 
         customLamp();
 
@@ -54,6 +58,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.INFUSER.get(),
                 new ModelFile.UncheckedModelFile(modLoc("block/infuser")));
 
+        logBlock(((RotatedPillarBlock) ModBlocks.INVASIVE_LOG.get()));
+        axisBlock(((RotatedPillarBlock) ModBlocks.INVASIVE_WOOD.get()), blockTexture(ModBlocks.INVASIVE_LOG.get()), blockTexture(ModBlocks.INVASIVE_LOG.get()));
+
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_INVASIVE_LOG.get(), new ResourceLocation(Monophobiamod.MOD_ID, "block/stripped_invasive_log"),
+                new ResourceLocation(Monophobiamod.MOD_ID, "block/stripped_invasive_log_top"));
+
+        axisBlock((RotatedPillarBlock) ModBlocks.STRIPPED_INVASIVE_WOOD.get(), new ResourceLocation(Monophobiamod.MOD_ID, "block/stripped_invasive_log"),
+                new ResourceLocation(Monophobiamod.MOD_ID, "block/stripped_invasive_log"));
+
+        blockItem(ModBlocks.INVASIVE_LOG);
+        blockItem(ModBlocks.INVASIVE_WOOD);
+        blockItem(ModBlocks.STRIPPED_INVASIVE_LOG);
+        blockItem(ModBlocks.STRIPPED_INVASIVE_WOOD);
+
+        blockWithItem(ModBlocks.INVASIVE_PLANKS);
+
+        leavesBlock(ModBlocks.INVASIVE_LEAVES);
+        saplingBlock(ModBlocks.INVASIVE_SAPLING);
+
+
+    }
+
+    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().cubeAll(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {

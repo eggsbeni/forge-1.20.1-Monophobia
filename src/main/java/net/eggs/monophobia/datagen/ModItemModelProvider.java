@@ -32,6 +32,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(Moditems.CRYSTAL_GROWTH_SHARD);
         simpleItem(Moditems.HERBAL_PURITY_SEEDS);
         simpleItem(Moditems.MEMORY_ESSENCE);
+        simpleItem(Moditems.DESOLATE_PLATING);
 
 
          //simpleItem(Moditems.OPAQUE_HELMET);
@@ -54,8 +55,18 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         complexBlock(ModBlocks.INFUSER.get());
 
+        saplingItem(ModBlocks.INVASIVE_SAPLING);
 
 
+
+
+
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(Monophobiamod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder complexBlock(Block block) {

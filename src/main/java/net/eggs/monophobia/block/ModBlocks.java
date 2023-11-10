@@ -3,14 +3,19 @@ package net.eggs.monophobia.block;
 import net.eggs.monophobia.Monophobiamod;
 import net.eggs.monophobia.block.custom.HerbalPurityCropBlock;
 import net.eggs.monophobia.block.custom.Infuser;
+import net.eggs.monophobia.block.custom.ModFlammableRotatedPillarBlock;
 import net.eggs.monophobia.block.custom.OpaqueIlluminator;
 import net.eggs.monophobia.items.Moditems;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
@@ -76,6 +81,66 @@ public static final RegistryObject<Block> INVASIVE_ROCK_SLAB = registerBlock("in
     public static final RegistryObject<Block> HERBAL_PURITY = BLOCKS.register("herbal_purity",
             () -> new HerbalPurityCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
 
+
+    public static final RegistryObject<Block> INVASIVE_LOG = registerBlock("invasive_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> INVASIVE_WOOD = registerBlock("invasive_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_INVASIVE_LOG = registerBlock("stripped_invasive_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_LOG)));
+    public static final RegistryObject<Block> STRIPPED_INVASIVE_WOOD = registerBlock("stripped_invasive_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD)));
+    public static final RegistryObject<Block> INVASIVE_PLANKS = registerBlock("invasive_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)) {
+
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+
+            });
+
+    public static final RegistryObject<Block> INVASIVE_LEAVES = registerBlock("invasive_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)) {
+
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+
+
+            });
+
+    public static final RegistryObject<Block> INVASIVE_STAIRS = registerBlock("invasive_stairs",
+            () -> new StairBlock(() -> ModBlocks.INVASIVE_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS)));
+
+    public static final RegistryObject<Block> INVASIVE_SLAB = registerBlock("invasive_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
+
+
+    public static final RegistryObject<Block> INVASIVE_SAPLING = registerBlock("invasive_sapling",
+            () -> new SaplingBlock(null, BlockBehaviour.Properties.copy(Blocks.DARK_OAK_SAPLING)));
 
 //NOTE TO EGG, for custom block properties, please refer to the course "adding custom blokcs at around 5:40
     //use that for when the blocks dont match with vanilla

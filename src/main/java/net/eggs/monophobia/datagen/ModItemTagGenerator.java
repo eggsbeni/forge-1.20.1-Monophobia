@@ -1,6 +1,7 @@
 package net.eggs.monophobia.datagen;
 
 import net.eggs.monophobia.Monophobiamod;
+import net.eggs.monophobia.block.ModBlocks;
 import net.eggs.monophobia.items.Moditems;
 import net.eggs.monophobia.util.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -29,6 +30,14 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ModTags.Items.BOSS_ITEMS)
                 .add(Moditems.DESOLATE_SHIELD.get());
+
+        this.tag(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.INVASIVE_LOG.get().asItem())
+                .add(ModBlocks.INVASIVE_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_INVASIVE_WOOD.get().asItem())
+                .add(ModBlocks.STRIPPED_INVASIVE_LOG.get().asItem());
+        this.tag(ItemTags.PLANKS)
+                .add(ModBlocks.INVASIVE_PLANKS.get().asItem());
     }
 
 

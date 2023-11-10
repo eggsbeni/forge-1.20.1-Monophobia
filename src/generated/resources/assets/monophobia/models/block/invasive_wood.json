@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "monophobia:block/invasive_log",
+    "side": "monophobia:block/invasive_log"
+  }
+}

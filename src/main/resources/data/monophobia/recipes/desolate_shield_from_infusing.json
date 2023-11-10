@@ -1,0 +1,17 @@
+{
+  "type": "monophobia:infusing",
+  "ingredients": [
+    {
+      "item": "monophobia:crystal_growth_shard"
+    },
+    {
+      "item": "minecraft:shield"
+    },
+    {
+      "item": "monophobia:desolate_plating"
+    }
+  ],
+  "output": {
+    "item": "monophobia:desolate_shield"
+  }
+}

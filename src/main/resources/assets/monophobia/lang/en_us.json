@@ -8,6 +8,7 @@
   "item.monophobia.herbal_purity": "Herbal Purity",
   "item.monophobia.herbal_purity_seeds": "Herbal Purity Seeds",
   "item.monophobia.memory_essence": "Memory Essence",
+  "item.monophobia.desolate_plating": "Desolate Plating",
 
   "block.monophobia.silent_mockery": "Silent Mockery",
 
@@ -63,6 +64,14 @@
   "block.monophobia.invasive_rock_pressure_plate": "Invasive Rock Pressure Plate",
   "block.monophobia.invasive_rock_button": "Invasive Rock Button",
   "block.monophobia.invasive_rock_wall": "Invasive Rock Wall",
+
+  "block.monophobia.invasive_log": "Invasive Log",
+  "block.monophobia.invasive_wood": "Invasive Wood",
+  "block.monophobia.invasive_planks": "Invasive Planks",
+  "block.monophobia.stripped_invasive_log": "Stripped Invasive Logs",
+  "block.monophobia.stripped_invasive_wood": "Stripped Invasive Wood",
+  "block.monophobia.invasive_stairs": "Invasive Stairs",
+  "block.monophobia.invasive_slab": "Invasive Slab",
 
   "block.monophobia.opaque_block": "Opaque Block",
   "block.monophobia.opaque_ore": "Opaque Ore",

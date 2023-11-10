@@ -54,6 +54,9 @@ public class Moditems {
 
     // revisit custom items and particles lectures to add particles to the shield and make it do things
 
+    public static final RegistryObject<Item> DESOLATE_PLATING = ITEMS.register("desolate_plating",
+            () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> OPAQUE_HELMET = ITEMS.register("opaque_helmet",
             () -> new ArmorItem(ModArmorMaterials.OPAQUE,ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> OPAQUE_CHESTPLATE = ITEMS.register("opaque_chestplate",

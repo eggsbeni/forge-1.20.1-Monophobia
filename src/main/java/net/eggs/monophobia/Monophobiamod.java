@@ -116,6 +116,7 @@ public class Monophobiamod
             event.accept(Moditems.MEMORY_ESSENCE);
             event.accept(Moditems.DIVINE_SCULPTURE);
             event.accept(Moditems.CRYSTAL_GROWTH_SHARD);
+            event.accept(Moditems.DESOLATE_PLATING);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {

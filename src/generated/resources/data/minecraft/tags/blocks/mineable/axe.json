@@ -1,3 +1,7 @@
 {
-  "values": []
+  "values": [
+    "monophobia:opaque_block",
+    "monophobia:invasive_stairs",
+    "monophobia:invasive_slab"
+  ]
 }
