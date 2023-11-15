@@ -65,6 +65,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.WALLS)
                 .add(ModBlocks.INVASIVE_ROCK_WALL.get());
 
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.INVASIVE_FENCE.get());
+
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.INVASIVE_FENCE_GATE.get());
+
 
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.INVASIVE_LOG.get())

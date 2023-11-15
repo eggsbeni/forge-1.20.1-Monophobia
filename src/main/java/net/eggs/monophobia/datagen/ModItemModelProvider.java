@@ -41,7 +41,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         // simpleItem(Moditems.OPAQUE_BOOTS);
 
         buttonItem(ModBlocks.INVASIVE_ROCK_BUTTON, ModBlocks.INVASIVE_ROCK);
+        buttonItem(ModBlocks.INVASIVE_BUTTON, ModBlocks.INVASIVE_PLANKS);
         wallItem(ModBlocks.INVASIVE_ROCK_WALL, ModBlocks.INVASIVE_ROCK);
+
+        fenceItem(ModBlocks.INVASIVE_FENCE, ModBlocks.INVASIVE_PLANKS);
 
         handheldItem(Moditems.OPAQUE_SWORD);
         handheldItem(Moditems.OPAQUE_PICKAXE);
@@ -52,6 +55,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(Moditems.DESOLATE_SLAMMER);
 
         simpleBlockItem(ModBlocks.SILENT_MOCKERY);
+        simpleBlockItem(ModBlocks.INVASIVE_DOOR);
 
         complexBlock(ModBlocks.INFUSER.get());
 
@@ -61,7 +65,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
 
+
     }
+
 
     private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),

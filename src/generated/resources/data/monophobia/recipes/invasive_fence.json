@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "monophobia:invasive_planks"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "   ",
+    "ABA",
+    "ABA"
+  ],
+  "result": {
+    "item": "monophobia:invasive_fence"
+  },
+  "show_notification": true
+}

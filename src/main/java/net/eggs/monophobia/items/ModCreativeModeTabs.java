@@ -68,6 +68,12 @@ public class ModCreativeModeTabs {
                 output.accept(ModBlocks.INVASIVE_PLANKS.get());
                 output.accept(ModBlocks.INVASIVE_STAIRS.get());
                 output.accept(ModBlocks.INVASIVE_SLAB.get());
+                output.accept(ModBlocks.INVASIVE_PRESSURE_PLATE.get());
+                output.accept(ModBlocks.INVASIVE_BUTTON.get());
+                output.accept(ModBlocks.INVASIVE_FENCE.get());
+                output.accept(ModBlocks.INVASIVE_FENCE_GATE.get());
+                output.accept(ModBlocks.INVASIVE_DOOR.get());
+                output.accept(ModBlocks.INVASIVE_TRAPDOOR.get());
                 output.accept(ModBlocks.INVASIVE_LEAVES.get());
                 output.accept(ModBlocks.INVASIVE_SAPLING.get());
 

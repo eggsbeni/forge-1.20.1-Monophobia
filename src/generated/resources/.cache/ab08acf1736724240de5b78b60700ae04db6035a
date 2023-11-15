@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-10T00:05:32.3785535	Item Models: monophobia
+// 1.20.1	2023-11-14T20:42:08.2206302	Item Models: monophobia
 f8ae72c678bf96b0190c828728014fecf6e1d441 assets/monophobia/models/item/corruptedfruit.json
 793e2efa7b45fd5b517ebfa9c22a9a9e3eb8a617 assets/monophobia/models/item/crystal_growth_shard.json
 c79afac654dba8e4c25ca45b017f53d9ec8131c6 assets/monophobia/models/item/desolate_plating.json
@@ -7,6 +7,8 @@ c42b9265bdb5f0b9814f42cf0054a52022eada9c assets/monophobia/models/item/divine_sc
 6cc28df472ac2d933238568898721103e9e7fc2f assets/monophobia/models/item/herbal_purity.json
 5a3d9b372efc8e7ab20a08a7d379e9ba38f257b8 assets/monophobia/models/item/herbal_purity_seeds.json
 4f76182c55a7b679364d8abaa981489b3b5c3af5 assets/monophobia/models/item/infuser.json
+ea5268c01f0a1c4f8663b16b7bf08bfb6fbdabbf assets/monophobia/models/item/invasive_button.json
+786a0e75b7429d682f91c16699c2f912e39a2479 assets/monophobia/models/item/invasive_fence.json
 5df94f82ac18c3fe328698371e90aa1eb2c74e18 assets/monophobia/models/item/invasive_rock_button.json
 4b91b32f0686c4513dba75e42cae6fa306f535d3 assets/monophobia/models/item/invasive_rock_wall.json
 61ecb3926e4b3c26635bc9da5be3e6c984ac58d3 assets/monophobia/models/item/invasive_sapling.json

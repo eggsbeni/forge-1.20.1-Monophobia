@@ -8,6 +8,7 @@ import net.eggs.monophobia.block.custom.OpaqueIlluminator;
 import net.eggs.monophobia.items.Moditems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -34,62 +35,6 @@ public class ModBlocks {
 
 
 
-
-
-public static final RegistryObject<Block> INVASIVE_BRICK = registerBlock("invasive_brick",
-        () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
-public static final RegistryObject<Block> INVASIVE_ROCK = registerBlock("invasive_rock",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE)));
-public static final RegistryObject<Block> SOLIDIFIED_INVASIVE_ROCK = registerBlock("solidified_invasive_rock",
-        () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
-public static final RegistryObject<Block> OPAQUE_BLOCK = registerBlock("opaque_block",
-        () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-public static final RegistryObject<Block> OPAQUE_ORE = registerBlock("opaque_ore",
-        () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE),
-                UniformInt.of(2, 5)));
-
-    public static final RegistryObject<Block> OPAQUE_ILLUMINATOR = registerBlock("opaque_illuminator",
-            () -> new OpaqueIlluminator(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SLIME_BLOCK)
-                    .lightLevel(state -> state.getValue(OpaqueIlluminator.CLICKED) ? 12 : 0)));
-
-    public static final RegistryObject<Block> INFUSER = registerBlock("infuser",
-            () -> new Infuser(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE).noOcclusion()));
-
-public static final RegistryObject<Block> INVASIVE_ROCK_STAIRS = registerBlock("invasive_rock_stairs",
-        () -> new StairBlock(() -> ModBlocks.INVASIVE_ROCK.get().defaultBlockState(),
-                BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_STAIRS)));
-
-public static final RegistryObject<Block> INVASIVE_ROCK_SLAB = registerBlock("invasive_rock_slab",
-        () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_SLAB)));
-
-    public static final RegistryObject<Block> INVASIVE_ROCK_PRESSURE_PLATE = registerBlock("invasive_rock_pressure_plate",
-            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
-                    BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE).sound(SoundType.STONE), BlockSetType.STONE));
-
-    public static final RegistryObject<Block> INVASIVE_ROCK_BUTTON = registerBlock("invasive_rock_button",
-            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).sound(SoundType.STONE), BlockSetType.STONE, 10, false));
-
-    public static final RegistryObject<Block> INVASIVE_ROCK_WALL = registerBlock("invasive_rock_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_WALL)));
-
-
-    public static final RegistryObject<Block> SILENT_MOCKERY = registerBlock("silent_mockery",
-            () -> new FlowerBlock(() -> MobEffects.HARM, 1, BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)));
-    public static final RegistryObject<Block> POTTED_SILENT_MOCKERY = BLOCKS.register("potted_silent_mockery",
-            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), SILENT_MOCKERY, BlockBehaviour.Properties.copy(Blocks.POTTED_DEAD_BUSH)));
-
-    public static final RegistryObject<Block> HERBAL_PURITY = BLOCKS.register("herbal_purity",
-            () -> new HerbalPurityCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
-
-
-    public static final RegistryObject<Block> INVASIVE_LOG = registerBlock("invasive_log",
-            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
-    public static final RegistryObject<Block> INVASIVE_WOOD = registerBlock("invasive_wood",
-            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD)));
-    public static final RegistryObject<Block> STRIPPED_INVASIVE_LOG = registerBlock("stripped_invasive_log",
-            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_LOG)));
-    public static final RegistryObject<Block> STRIPPED_INVASIVE_WOOD = registerBlock("stripped_invasive_wood",
-            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD)));
     public static final RegistryObject<Block> INVASIVE_PLANKS = registerBlock("invasive_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_PLANKS)) {
 
@@ -109,6 +54,88 @@ public static final RegistryObject<Block> INVASIVE_ROCK_SLAB = registerBlock("in
                 }
 
             });
+
+public static final RegistryObject<Block> INVASIVE_BRICK = registerBlock("invasive_brick",
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+public static final RegistryObject<Block> INVASIVE_ROCK = registerBlock("invasive_rock",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE)));
+public static final RegistryObject<Block> SOLIDIFIED_INVASIVE_ROCK = registerBlock("solidified_invasive_rock",
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
+public static final RegistryObject<Block> OPAQUE_BLOCK = registerBlock("opaque_block",
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+public static final RegistryObject<Block> OPAQUE_ORE = registerBlock("opaque_ore",
+        () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE),
+                UniformInt.of(2, 5)));
+
+    public static final RegistryObject<Block> HERBAL_PURITY = BLOCKS.register("herbal_purity",
+            () -> new HerbalPurityCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
+
+    public static final RegistryObject<Block> OPAQUE_ILLUMINATOR = registerBlock("opaque_illuminator",
+            () -> new OpaqueIlluminator(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).sound(SoundType.SLIME_BLOCK)
+                    .lightLevel(state -> state.getValue(OpaqueIlluminator.CLICKED) ? 12 : 0)));
+
+    public static final RegistryObject<Block> INFUSER = registerBlock("infuser",
+            () -> new Infuser(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE).noOcclusion()));
+
+public static final RegistryObject<Block> INVASIVE_ROCK_STAIRS = registerBlock("invasive_rock_stairs",
+        () -> new StairBlock(() -> ModBlocks.INVASIVE_ROCK.get().defaultBlockState(),
+                BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_STAIRS)));
+
+    public static final RegistryObject<Block> INVASIVE_STAIRS = registerBlock("invasive_stairs",
+            () -> new StairBlock(() -> ModBlocks.INVASIVE_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_STAIRS)));
+
+public static final RegistryObject<Block> INVASIVE_ROCK_SLAB = registerBlock("invasive_rock_slab",
+        () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_SLAB)));
+
+    public static final RegistryObject<Block> INVASIVE_SLAB = registerBlock("invasive_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_SLAB)));
+
+    public static final RegistryObject<Block> INVASIVE_ROCK_PRESSURE_PLATE = registerBlock("invasive_rock_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
+                    BlockBehaviour.Properties.copy(Blocks.STONE_PRESSURE_PLATE).sound(SoundType.STONE), BlockSetType.STONE));
+
+    public static final RegistryObject<Block> INVASIVE_PRESSURE_PLATE = registerBlock("invasive_pressure_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
+                    BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).sound(SoundType.WOOD), BlockSetType.DARK_OAK));
+
+    public static final RegistryObject<Block> INVASIVE_ROCK_BUTTON = registerBlock("invasive_rock_button",
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).sound(SoundType.STONE), BlockSetType.STONE, 20, false));
+
+    public static final RegistryObject<Block> INVASIVE_BUTTON = registerBlock("invasive_button",
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON).sound(SoundType.WOOD), BlockSetType.DARK_OAK, 10, false));
+
+    public static final RegistryObject<Block> INVASIVE_FENCE = registerBlock("invasive_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_FENCE).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> INVASIVE_FENCE_GATE = registerBlock("invasive_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
+
+    public static final RegistryObject<Block> INVASIVE_DOOR = registerBlock("invasive_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG), BlockSetType.DARK_OAK));
+    public static final RegistryObject<Block> INVASIVE_TRAPDOOR = registerBlock("invasive_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG), BlockSetType.DARK_OAK));
+
+    public static final RegistryObject<Block> INVASIVE_ROCK_WALL = registerBlock("invasive_rock_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICK_WALL)));
+
+
+    public static final RegistryObject<Block> SILENT_MOCKERY = registerBlock("silent_mockery",
+            () -> new FlowerBlock(() -> MobEffects.HARM, 1, BlockBehaviour.Properties.copy(Blocks.DEAD_BUSH)));
+    public static final RegistryObject<Block> POTTED_SILENT_MOCKERY = BLOCKS.register("potted_silent_mockery",
+            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), SILENT_MOCKERY, BlockBehaviour.Properties.copy(Blocks.POTTED_DEAD_BUSH)));
+
+
+
+
+    public static final RegistryObject<Block> INVASIVE_LOG = registerBlock("invasive_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LOG)));
+    public static final RegistryObject<Block> INVASIVE_WOOD = registerBlock("invasive_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_INVASIVE_LOG = registerBlock("stripped_invasive_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_LOG)));
+    public static final RegistryObject<Block> STRIPPED_INVASIVE_WOOD = registerBlock("stripped_invasive_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_DARK_OAK_WOOD)));
+
 
     public static final RegistryObject<Block> INVASIVE_LEAVES = registerBlock("invasive_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_LEAVES)) {
@@ -131,12 +158,7 @@ public static final RegistryObject<Block> INVASIVE_ROCK_SLAB = registerBlock("in
 
             });
 
-    public static final RegistryObject<Block> INVASIVE_STAIRS = registerBlock("invasive_stairs",
-            () -> new StairBlock(() -> ModBlocks.INVASIVE_PLANKS.get().defaultBlockState(),
-                    BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS)));
 
-    public static final RegistryObject<Block> INVASIVE_SLAB = registerBlock("invasive_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
 
 
     public static final RegistryObject<Block> INVASIVE_SAPLING = registerBlock("invasive_sapling",

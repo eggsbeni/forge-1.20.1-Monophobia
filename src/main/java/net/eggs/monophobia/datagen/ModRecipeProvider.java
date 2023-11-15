@@ -64,6 +64,53 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModBlocks.INVASIVE_ROCK.get()).build()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_PRESSURE_PLATE.get())
+                .pattern("   ")
+                .pattern("   ")
+                .pattern("AA ")
+                .define('A', ModBlocks.INVASIVE_PLANKS.get())
+                .unlockedBy("has_Invasive_Planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_PRESSURE_PLATE.get(), 2)
+                .pattern("   ")
+                .pattern("AAA")
+                .pattern("AAA")
+                .define('A', ModBlocks.INVASIVE_PLANKS.get())
+                .unlockedBy("has_Invasive_Planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_DOOR.get())
+                .pattern("AA ")
+                .pattern("AA ")
+                .pattern("AA ")
+                .define('A', ModBlocks.INVASIVE_PLANKS.get())
+                .unlockedBy("has_Invasive_Planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_FENCE.get())
+                .pattern("   ")
+                .pattern("ABA")
+                .pattern("ABA")
+                .define('A', ModBlocks.INVASIVE_PLANKS.get())
+                .define('B', Items.STICK)
+                .unlockedBy("has_Invasive_Planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_FENCE_GATE.get())
+                .pattern("   ")
+                .pattern("ABA")
+                .pattern("ABA")
+                .define('A', Items.STICK)
+                .define('B', ModBlocks.INVASIVE_PLANKS.get())
+                .unlockedBy("has_Invasive_Planks", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INVASIVE_ROCK_WALL.get())
                 .pattern("   ")
@@ -211,6 +258,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_opaque_block", inventoryTrigger(ItemPredicate.Builder.item().
                         of(ModBlocks.INVASIVE_ROCK.get()).build()))
                 .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, ModBlocks.INVASIVE_PLANKS.get(), 1)
+                .requires(ModBlocks.INVASIVE_BUTTON.get())
+                .unlockedBy("has_invasive_planks", inventoryTrigger(ItemPredicate.Builder.item().
+                        of(ModBlocks.INVASIVE_PLANKS.get()).build()))
+                .save(pWriter);
+
+
 
 
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, Moditems.RAWOPAQUE.get(), RecipeCategory.MISC, ModBlocks.OPAQUE_ORE.get(),

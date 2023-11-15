@@ -42,6 +42,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createSlabItemTable(ModBlocks.INVASIVE_ROCK_SLAB.get()));
         this.dropSelf(ModBlocks.INVASIVE_ROCK_PRESSURE_PLATE.get());
         this.dropSelf(ModBlocks.INVASIVE_ROCK_BUTTON.get());
+        this.dropSelf(ModBlocks.INVASIVE_PRESSURE_PLATE.get());
+        this.dropSelf(ModBlocks.INVASIVE_BUTTON.get());
         this.dropSelf(ModBlocks.INVASIVE_ROCK_WALL.get());
 
         this.dropSelf(ModBlocks.SILENT_MOCKERY.get());
@@ -58,7 +60,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_INVASIVE_LOG.get());
         this.dropSelf(ModBlocks.STRIPPED_INVASIVE_WOOD.get());
         this.dropSelf(ModBlocks.INVASIVE_PLANKS.get());
+        this.dropSelf(ModBlocks.INVASIVE_FENCE.get());
+        this.dropSelf(ModBlocks.INVASIVE_FENCE_GATE.get());
+        this.dropSelf(ModBlocks.INVASIVE_TRAPDOOR.get());
         this.dropSelf(ModBlocks.INVASIVE_SAPLING.get());
+
+        this.add(ModBlocks.INVASIVE_DOOR.get(),
+                block -> createDoorTable(ModBlocks.INVASIVE_DOOR.get()));
 
         this.dropSelf(ModBlocks.INVASIVE_STAIRS.get());
         this.add(ModBlocks.INVASIVE_SLAB.get(),

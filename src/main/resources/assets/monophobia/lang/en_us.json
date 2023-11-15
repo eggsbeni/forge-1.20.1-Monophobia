@@ -72,6 +72,12 @@
   "block.monophobia.stripped_invasive_wood": "Stripped Invasive Wood",
   "block.monophobia.invasive_stairs": "Invasive Stairs",
   "block.monophobia.invasive_slab": "Invasive Slab",
+  "block.monophobia.invasive_pressure_plate": "Invasive Pressure Plate",
+  "block.monophobia.invasive_button": "Invasive Button",
+  "block.monophobia.invasive_fence": "Invasive Fence",
+  "block.monophobia.invasive_fence_gate": "Invasive Fence Gate",
+  "block.monophobia.invasive_door": "Invasive Door",
+  "block.monophobia.invasive_trapdoor": "Invasive Trapdoor",
 
   "block.monophobia.opaque_block": "Opaque Block",
   "block.monophobia.opaque_ore": "Opaque Ore",

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "monophobia:block/invasive_slab"
+    },
+    "type=double": {
+      "model": "monophobia:block/invasive_planks"
+    },
+    "type=top": {
+      "model": "monophobia:block/invasive_slab_top"
+    }
+  }
+}

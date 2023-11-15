@@ -31,6 +31,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.INVASIVE_ROCK);
         blockWithItem(ModBlocks.SOLIDIFIED_INVASIVE_ROCK);
 
+        blockWithItem(ModBlocks.INVASIVE_PLANKS);
+
         stairsBlock((StairBlock) ModBlocks.INVASIVE_ROCK_STAIRS.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
         slabBlock((SlabBlock) ModBlocks.INVASIVE_ROCK_SLAB.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
 
@@ -39,14 +41,25 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         buttonBlock((ButtonBlock) ModBlocks.INVASIVE_ROCK_BUTTON.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
         pressurePlateBlock((PressurePlateBlock) ModBlocks.INVASIVE_ROCK_PRESSURE_PLATE.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
+        buttonBlock((ButtonBlock) ModBlocks.INVASIVE_BUTTON.get(), blockTexture(ModBlocks.INVASIVE_PLANKS.get()));
+        pressurePlateBlock((PressurePlateBlock) ModBlocks.INVASIVE_PRESSURE_PLATE.get(), blockTexture(ModBlocks.INVASIVE_PLANKS.get()));
         wallBlock((WallBlock) ModBlocks.INVASIVE_ROCK_WALL.get(), blockTexture(ModBlocks.INVASIVE_ROCK.get()));
+
+        fenceBlock((FenceBlock) ModBlocks.INVASIVE_FENCE.get(), blockTexture(ModBlocks.INVASIVE_PLANKS.get()));
+        fenceGateBlock((FenceGateBlock) ModBlocks.INVASIVE_FENCE_GATE.get(), blockTexture(ModBlocks.INVASIVE_PLANKS.get()));
+
+        doorBlockWithRenderType((DoorBlock)ModBlocks.INVASIVE_DOOR.get(), modLoc("block/invasive_door_bottom"), modLoc("block/invasive_door_top"), "cutout");
+        trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.INVASIVE_TRAPDOOR.get(), modLoc("block/invasive_trapdoor"), true, "cutout");
 
         blockItem(ModBlocks.INVASIVE_ROCK_STAIRS);
         blockItem(ModBlocks.INVASIVE_ROCK_SLAB);
         blockItem(ModBlocks.INVASIVE_ROCK_PRESSURE_PLATE);
+        blockItem(ModBlocks.INVASIVE_FENCE_GATE);
 
+        blockItem(ModBlocks.INVASIVE_PRESSURE_PLATE);
         blockItem(ModBlocks.INVASIVE_STAIRS);
         blockItem(ModBlocks.INVASIVE_SLAB);
+        blockItem(ModBlocks.INVASIVE_TRAPDOOR, "_bottom");
 
         customLamp();
 
@@ -72,7 +85,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.STRIPPED_INVASIVE_LOG);
         blockItem(ModBlocks.STRIPPED_INVASIVE_WOOD);
 
-        blockWithItem(ModBlocks.INVASIVE_PLANKS);
+
 
         leavesBlock(ModBlocks.INVASIVE_LEAVES);
         saplingBlock(ModBlocks.INVASIVE_SAPLING);
@@ -131,5 +144,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
 
+    }
+
+    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mccourse:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath() + appendix));
     }
 }

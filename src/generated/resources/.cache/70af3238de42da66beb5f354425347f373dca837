@@ -1,11 +1,13 @@
-// 1.20.1	2023-11-10T00:05:32.3805467	Block Tags
+// 1.20.1	2023-11-14T20:42:08.2236202	Block Tags
+fc4bd85b7a6632417a89943ef844e397d0fd225d data/minecraft/tags/blocks/fences.json
+8a64c17a1bcc2c702350b42bdd72024a4ee0b178 data/minecraft/tags/blocks/fence_gates.json
 77672ba1ac3e376b72cc7e7791be7f1d0286e846 data/minecraft/tags/blocks/logs_that_burn.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/axe.json
+20b59273288381223af1d17b120d5dbdf9c3732f data/minecraft/tags/blocks/mineable/axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/hoe.json
 42907dbe8c8791a250d22664416fdbb7e3cde7bc data/minecraft/tags/blocks/mineable/pickaxe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/shovel.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_diamond_tool.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_iron_tool.json
+848a7b8e75a34b3c3c2ccfade8e44317265f72c4 data/minecraft/tags/blocks/needs_iron_tool.json
 83906864b901aec1d432a113bba948f24c391eed data/minecraft/tags/blocks/needs_stone_tool.json
 5e6774aba313d7de407d86b1a3519864ca707fd3 data/minecraft/tags/blocks/planks.json
 ba9be6c486c90f789209ea0e091cd834ff64cf81 data/minecraft/tags/blocks/walls.json
